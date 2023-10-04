@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto Final</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <img src="logo.png" alt="Logo de Mi Proyecto">
+        </div>
+        <div class="media">
+            <audio controls>
+                <source src="audio.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <video controls>
+                <source src="video.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+        </div>
+        <div class="geolocalizacion">
+            <p>Ubicación actual:</p>
+            <p id="ubicacion"></p>
+        </div>
+    </header>
+    <main>
+        <!-- Contenido principal de la página -->
+    </main>
+    <footer>
+        <!-- Pie de página -->
+    </footer>
+    <script>
+        // JavaScript para obtener la geolocalización del usuario
+        function obtenerUbicacion() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var ubicacion = document.getElementById("ubicacion");
+                    ubicacion.textContent = "Latitud: " + position.coords.latitude + ", Longitud: " + position.coords.longitude;
+                });
+            } else {
+                var ubicacion = document.getElementById("ubicacion");
+                ubicacion.textContent = "Geolocalización no disponible en tu navegador.";
+            }
+        }
+        obtenerUbicacion();
+    </script>
+</body>
+</html>
